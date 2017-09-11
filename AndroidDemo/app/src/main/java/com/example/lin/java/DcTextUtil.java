@@ -16,7 +16,6 @@ public class DcTextUtil {
 
         setText("", ":");
 
-        setText(null, ":");
     }
 
     /**
@@ -28,7 +27,9 @@ public class DcTextUtil {
 
         String[] splitTextStrs = text.split(splitCh);
 
-        System.out.println("splitTextStrs: " + splitTextStrs.toString()
+        int index = text.indexOf(":");
+
+        System.out.println("index: " + index + "splitTextStrs: " + splitTextStrs.toString()
                 + splitTextStrs.length
         );
 
