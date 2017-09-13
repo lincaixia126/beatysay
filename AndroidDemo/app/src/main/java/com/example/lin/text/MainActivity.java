@@ -79,11 +79,11 @@ public class MainActivity extends Activity {
 
         
         
-        TextView textView = (TextView) findViewById(R.id.textView);
+//        TextView textView = (TextView) findViewById(R.id.textView);
         //textView.setMovementMethod(LinkMovementMethod.getInstance());
         // void android.widget.TextView.setText(CharSequence text)
 
-        String text = "测试：你好";
+//        String text = "测试：你好";
 //        SpannableString msp = new SpannableString(text);
 //
 //
@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
 //            msp.setSpan(new ForegroundColorSpan(0xFF333333), index, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 //        }
 
-        textView.setText(DcTextUtil.getText(text));
+//        textView.setText(DcTextUtil.getText(text));
         
     }
 }
