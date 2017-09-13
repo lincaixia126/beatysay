@@ -16,7 +16,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"/>
 
-    <ImageView
+    <com.example.lin.image.glide.RoundImageView
         android:id="@+id/image2"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
