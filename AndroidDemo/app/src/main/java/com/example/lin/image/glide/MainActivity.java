@@ -10,6 +10,9 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.lin.R;
 
 import java.io.IOException;
@@ -24,6 +27,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private static final String TAG = "MainActivity";
 
     @BindView(R.id.image)
     ImageView mImage;
@@ -95,17 +100,39 @@ public class MainActivity extends AppCompatActivity {
 
     String[] urls = {
             "http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIoONcNCpQHGlFtkfraQg7DOAL84UdqPPA2ks9OFGZzTOwtRF0HNicbQJt1YyoyA92libiaHic9r2iamibA/96",
-            " http://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoqTVJGgCDDZVAXINllSdkxZWicLbGslCq4k7XmMnTl2xjJypu0P0mMjKUfudWD3vTGI8cSsKYFJrQ/96"
+            "http://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoqTVJGgCDDZVAXINllSdkxZWicLbGslCq4k7XmMnTl2xjJypu0P0mMjKUfudWD3vTGI8cSsKYFJrQ/96",
+            "http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIKRo1B1QhBtyg6QdzSnOSb65icdHmeePwjmnCy6iaMhcRZJWic6BhBy6DJX8whhDRn4lUfUvItcnIYA/96"
+
     };
 
     @BindView(R.id.image2)
     ImageView mImage2;
 
+    RequestListener<String, GlideDrawable> listener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide_main);
         ButterKnife.bind(this);
+
+        initListener();
+    }
+
+    private void initListener() {
+        listener  = new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                Log.d(TAG, "onException: " + e.toString() + "  model:" + model + " isFirstResource: " + isFirstResource);
+                mImage.setImageResource(R.mipmap.ic_launcher);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                Log.e(TAG, "isFromMemoryCache:" + isFromMemoryCache + "  model:" + model + " isFirstResource: " + isFirstResource);
+                return false;
+            }
+        };
     }
 
     @OnClick(R.id.show_img_btn)
@@ -115,7 +142,9 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(url)
                 .placeholder(R.drawable.image_round_gray)
+                .listener(listener)
                 .into(mImage);
+
 
         count++;
 
