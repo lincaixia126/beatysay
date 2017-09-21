@@ -28,7 +28,7 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "LoginActivity";
 
     @BindView(R.id.image)
     ImageView mImage;
