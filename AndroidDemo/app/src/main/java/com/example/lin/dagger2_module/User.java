@@ -11,16 +11,9 @@ public class User {
 
     private int age  = 16;
 
-    @Inject
     public User() {
 
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "mName='" + mName + '\'' +
-                ", age=" + age +
-                '}';
-    }
+
 }

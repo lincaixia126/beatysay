@@ -20,11 +20,13 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.http_test)
     Button mHttpTest;
 
+    //没有使用单例， 下面两个是两个不同的对象
     @Inject
     User mUser;
 
     @Inject
     User mUser2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             mRoot.addView(textView);
         }
 
-        mHttpTest.setText(mUser.toString());
+        mHttpTest.setText(mUser.toString() + " 2: " + mUser2.toString());
 
-        mHttpTest.setText(mUser2.toString());
     }
 }

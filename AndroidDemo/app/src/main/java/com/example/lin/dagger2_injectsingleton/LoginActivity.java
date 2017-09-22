@@ -1,4 +1,4 @@
-package com.example.lin.dagger2_module;
+package com.example.lin.dagger2_injectsingleton;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,8 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.http_test)
     Button mHttpTest;
 
-    //使用modeule的话，会生成LoginModule_GetUserFactory这个类
-    //跟User_Factory一样， 都是 implements Factory<User>
+    //使用了单例， 下面两个是两个相同的对象
     @Inject
     User mUser;
 
