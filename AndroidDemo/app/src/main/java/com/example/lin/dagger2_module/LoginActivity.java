@@ -12,6 +12,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,6 +29,9 @@ public class LoginActivity extends AppCompatActivity {
     @Inject
     User mUser2;
 
+    @Inject
+    TestClass mTestClass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +47,11 @@ public class LoginActivity extends AppCompatActivity {
             textView.setText("测试： " + i);
             mRoot.addView(textView);
         }
+    }
 
-        mHttpTest.setText(mUser.toString() + " 2: " + mUser2.toString());
+
+    @OnClick(R.id.http_test)
+    public void onViewClicked() {
+        mHttpTest.setText(mUser.toString() + " 2: " + mUser2.toString() + " test: " + mTestClass.test());
     }
 }
