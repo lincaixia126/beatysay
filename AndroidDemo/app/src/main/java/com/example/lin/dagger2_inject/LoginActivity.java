@@ -24,9 +24,6 @@ public class LoginActivity extends AppCompatActivity {
     @Inject
     User mUser;
 
-    @Inject
-    User mUser2;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                 .build()
                 .inject(this);
 
-        for (int i = 0; i < 4; i++) {
-            TextView textView = new TextView(this);
-            textView.setText("测试： " + i);
-            mRoot.addView(textView);
-        }
-
-        mHttpTest.setText(mUser.toString() + " 2: " + mUser2.toString());
+//        mHttpTest.setText(mUser.toString());
 
     }
 }

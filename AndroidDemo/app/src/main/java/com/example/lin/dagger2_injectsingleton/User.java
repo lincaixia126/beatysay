@@ -8,9 +8,6 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class User {
-    private String mName = "lcx";
-
-    private int age  = 16;
 
     @Inject
     public User() {

@@ -32,7 +32,7 @@ public class HelloRx {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 System.out.println("call me...call me ...");
-                //call 时候如果没有手动掉subsriber，不会主动触发
+                //call 时候如果没有手动掉subsriber，不会主动触发 onNext...onCompleted....
 
             }
         });

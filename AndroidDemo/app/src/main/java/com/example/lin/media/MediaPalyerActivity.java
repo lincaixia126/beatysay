@@ -54,7 +54,7 @@ public class MediaPalyerActivity extends AppCompatActivity {
     }
 
     private void testMyPlayer() {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 4000; i++) {
             String musicPath = "http://s3.meituan.net/v1/mss_a4650d8569ee45fb9f0f36a36e96e4e4/static/auto_receive_order_success.mp3";
             Intent intent = new Intent(this, MusicPlayerService.class);
             intent.setData(Uri.parse(musicPath));

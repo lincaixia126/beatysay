@@ -7,9 +7,6 @@ import javax.inject.Inject;
  */
 
 public class User {
-    private String mName = "lcx";
-
-    private int age  = 16;
 
     //使用这个注解会生成 User_Factory
     @Inject
