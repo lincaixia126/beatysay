@@ -65,5 +65,8 @@ dependencies {
     compile 'com.android.support:cardview-v7:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.3'
 
+    //eventbus....
+    compile 'org.greenrobot:eventbus:3.0.0'
+
     compile project(path: ':vippay2')
 }
