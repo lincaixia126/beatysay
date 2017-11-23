@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	>
+
+	<ImageView
+		android:id="@+id/dc_img_view"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@mipmap/ic_launcher"
+		android:layout_centerVertical="true"
+		android:layout_alignParentLeft="true"
+		/>
+	
+	<TextView
+		android:id="@+id/dc_campain_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="#987461"
+		android:textSize="16sp"
+		android:layout_centerVertical="true"
+		tools:text="优惠"
+		android:layout_toRightOf="@+id/dc_img_view"
+		android:layout_marginLeft="20dp"
+		/>
+	
+	<TextView
+		android:id="@+id/dc_campaign_money"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		tools:text="-$20"
+		android:layout_toLeftOf="@+id/dc_campaign_down"
+		android:layout_marginRight="20dp"
+		/>
+	
+	<ImageView
+		android:id="@+id/dc_campaign_down"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@mipmap/ic_launcher"
+		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"
+		/>
+</RelativeLayout>
