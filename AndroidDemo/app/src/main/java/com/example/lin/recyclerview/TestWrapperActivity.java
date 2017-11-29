@@ -8,17 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.lin.R;
-import com.example.lin.campaign.TestCampaignActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by lin on 17/11/21.
@@ -32,6 +31,8 @@ public class TestWrapperActivity extends Activity {
 
     private List<DataItem> mDataItems;
 
+    private List<DataItem> mDataSaveItems;
+    WrapAdapter<RealAdapter> wrapAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +48,28 @@ public class TestWrapperActivity extends Activity {
         mTestRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         RealAdapter realAdapter = new RealAdapter();
-        WrapAdapter<RealAdapter> wrapAdapter = new WrapAdapter(realAdapter);
+        wrapAdapter = new WrapAdapter(realAdapter);
 
         View view = LayoutInflater.from(this).inflate(R.layout.recyclerview_footer_item, null);
         wrapAdapter.addFooterView(view);
 
+        mDataSaveItems = new ArrayList<>();
+        mDataSaveItems.addAll(mDataItems);
+
         mTestRecyclerView.setAdapter(wrapAdapter);
+    }
+
+    @OnClick(R.id.testNotify)
+    public void onViewClicked() {
+
+        if (mDataItems.size() > 1) {
+            mDataItems.clear();
+            mDataItems.add(mDataSaveItems.get(0));
+        } else {
+            mDataItems.clear();
+            mDataItems.addAll(mDataSaveItems);
+        }
+        wrapAdapter.notifyDataSetChanged();
     }
 
 
@@ -83,14 +100,14 @@ public class TestWrapperActivity extends Activity {
 
     class NormalViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.title)
         TextView mTitle;
+        @BindView(R.id.value)
         TextView mValue;
 
         public NormalViewHolder(View itemView) {
             super(itemView);
-            mTitle = (TextView)itemView.findViewById(R.id.title);
-            mValue = (TextView)itemView.findViewById(R.id.value);
-
+            ButterKnife.bind(this, itemView);
         }
 
         public void onBind(DataItem dataItem) {
