@@ -81,8 +81,8 @@ public class Test2Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mTitle.setText(dataItem2.getCampainName());
             mValue.setText(dataItem2.getCampainValue());
 
-            mImg1.setVisibility(dataItem2.isLeftImageVisible() ? View.VISIBLE : View.INVISIBLE);
-            mImg2.setVisibility(dataItem2.isRightImageVisible() ? View.VISIBLE : View.INVISIBLE);
+            mImg1.setVisibility(dataItem2.isLeftImageVisible() ? View.VISIBLE : View.GONE);
+            mImg2.setVisibility(dataItem2.isRightImageVisible() ? View.VISIBLE : View.GONE);
 
             mImg2.setOnClickListener(new View.OnClickListener() {
                 @Override
