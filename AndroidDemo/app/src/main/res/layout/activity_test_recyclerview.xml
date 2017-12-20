@@ -8,7 +8,7 @@
               android:orientation="vertical"
               android:dividerPadding="10dp">
 
-    
+   
    <android.support.v7.widget.RecyclerView
        android:id="@+id/test_recyclerView"
        android:layout_width="match_parent"
