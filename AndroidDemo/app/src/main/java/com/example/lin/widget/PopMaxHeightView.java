@@ -26,22 +26,44 @@ public class PopMaxHeightView extends FrameLayout {
 
     }
 
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        if (this.mMaxHeight <= 0) {
+//            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        }
+//        final int mode = MeasureSpec.getMode(heightMeasureSpec);
+//        if (mode == MeasureSpec.UNSPECIFIED) {
+//            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//            if (this.getMeasuredHeight() > this.mMaxHeight) {
+//                super.onMeasure(widthMeasureSpec,
+//                        MeasureSpec.makeMeasureSpec(this.mMaxHeight, MeasureSpec.EXACTLY));
+//            }
+//        } else {
+//            super.onMeasure(widthMeasureSpec,
+//                    MeasureSpec.makeMeasureSpec(this.mMaxHeight, MeasureSpec.AT_MOST));
+//        }
+//    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (this.mMaxHeight <= 0) {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        }
-        final int mode = MeasureSpec.getMode(heightMeasureSpec);
-        if (mode == MeasureSpec.UNSPECIFIED) {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-            if (this.getMeasuredHeight() > this.mMaxHeight) {
-                super.onMeasure(widthMeasureSpec,
-                        MeasureSpec.makeMeasureSpec(this.mMaxHeight, MeasureSpec.EXACTLY));
+        if (mMaxHeight > 0){
+            int hSize = MeasureSpec.getSize(heightMeasureSpec);
+            int hMode = MeasureSpec.getMode(heightMeasureSpec);
+
+            switch (hMode){
+                case MeasureSpec.AT_MOST:
+                    heightMeasureSpec = MeasureSpec.makeMeasureSpec(Math.min(hSize, mMaxHeight), MeasureSpec.AT_MOST);
+                    break;
+                case MeasureSpec.UNSPECIFIED:
+                    heightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxHeight, MeasureSpec.AT_MOST);
+                    break;
+                case MeasureSpec.EXACTLY:
+                    heightMeasureSpec = MeasureSpec.makeMeasureSpec(Math.min(hSize, mMaxHeight), MeasureSpec.EXACTLY);
+                    break;
             }
-        } else {
-            super.onMeasure(widthMeasureSpec,
-                    MeasureSpec.makeMeasureSpec(this.mMaxHeight, MeasureSpec.AT_MOST));
         }
+
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
 }

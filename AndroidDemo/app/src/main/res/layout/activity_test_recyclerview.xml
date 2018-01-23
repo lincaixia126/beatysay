@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/root"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:divider="@drawable/dc_detail_dish_divider"
-              android:showDividers="middle"
-              android:orientation="vertical"
-              android:dividerPadding="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/dc_detail_dish_divider"
+    android:showDividers="middle"
+    android:orientation="vertical"
+    android:dividerPadding="10dp">
 
-   
-   <android.support.v7.widget.RecyclerView
-       android:id="@+id/test_recyclerView"
+   <com.example.lin.widget.PopMaxHeightView
        android:layout_width="match_parent"
-       android:layout_height="500dp">
-       
-       
-   </android.support.v7.widget.RecyclerView>
+       android:layout_height="wrap_content"
+       app:maxHeight="100"
+       >
+   
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/test_recyclerView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+         
+      </android.support.v7.widget.RecyclerView>
+      
+   </com.example.lin.widget.PopMaxHeightView>
+   
    
    <Button
        android:id="@+id/testNotify"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        />
+   
+   <com.example.lin.widget.CircleCornerLinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:radius="8dp"
+       >
+      
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:text="dfjaldjfaldjfladjf"
+          
+          />
+      
+   </com.example.lin.widget.CircleCornerLinearLayout>
    
 </LinearLayout>

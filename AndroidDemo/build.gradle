@@ -16,9 +16,27 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url "http://depot.sankuai.com/nexus/content/groups/public/"
+        }
+        maven {
+            url "http://depot.sankuai.com/nexus/content/groups/public-snapshots"
+        }
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+        maven {
+            url "http://mvn.dianpingoa.com/android-nova"
+        }
+        maven {
+            url "http://depot.sankuai.com/nexus/content/repositories/thirdparty"
+        }
+
+        mavenLocal()
         jcenter()
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

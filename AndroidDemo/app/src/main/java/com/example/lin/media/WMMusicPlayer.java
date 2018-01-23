@@ -37,7 +37,14 @@ public class WMMusicPlayer extends Service {
     }
 
     @Override
+    public void onDestroy() {
+        Log.d(TAG, "onDestroy: " );
+        super.onDestroy();
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "onStartCommand: " + intent);
         boolean start = intent.getBooleanExtra("start", false);
         if (start) {
             start();

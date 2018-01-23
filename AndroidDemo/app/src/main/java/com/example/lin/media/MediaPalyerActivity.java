@@ -32,14 +32,14 @@ public class MediaPalyerActivity extends AppCompatActivity {
 
     @OnClick(R.id.play_btn)
     public void onViewClicked() {
-//        testYanhuaPlayer();
+        testYanhuaPlayer();
 
-        testMyPlayer();
+//        testMyPlayer();
     }
 
     private void testYanhuaPlayer() {
         final String url = "http://s3.meituan.net/v1/mss_a4650d8569ee45fb9f0f36a36e96e4e4/static/auto_receive_order_success.mp3";
-        for (int i = 0; i < 10000; i++)
+        for (int i = 0; i < 100000; i++)
             WMMusicPlayer.playUrl(getApplicationContext(), url);
 //        ExecutorService executorService = Executors.newCachedThreadPool();
 //        for (int i = 0; i < 100; i++) {
